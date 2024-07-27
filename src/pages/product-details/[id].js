@@ -238,18 +238,6 @@ function Productdetails() {
                         <span className="feature-title"> Plus (F-Assured) </span>
                     </div>
                 </div>
-                <div className="container-fluid product-detail px-3 py-3 mb-4 card d-flex justify-content-center align-items-center">
-                    <div className='d-flex justify-content-center w-100 align-items-center'>
-                        <h1 className=' pb-4'><b>Product details</b></h1>
-                    </div>
-                    <div className="product-details  w-100">
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: data1?.disp_order,
-                            }}
-                        />
-                    </div>
-                </div>
                 <span className="b7864- _2Z07dN mb-5">
                     <img
                         src={"/uploads/4ccd9906-2aab-46dc-8ba6-d8c45ae94d1e.jpeg"}
@@ -262,6 +250,19 @@ function Productdetails() {
 
                     />
                 </span>
+                <div className="container-fluid product-detail px-3 py-3 mb-4 card d-flex justify-content-center align-items-center">
+                    <div className='d-flex justify-content-center w-100 align-items-center'>
+                        <h1 className=' pb-4'><b>Product details</b></h1>
+                    </div>
+                    <div className="product-details  w-100">
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: data1?.disp_order,
+                            }}
+                        />
+                    </div>
+                </div>
+                
                 <div className="button-container flex">
                     <button
                         className="buynow-button buynow-button-white product-page-buy"
