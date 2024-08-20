@@ -64,33 +64,48 @@ const Payments = () => {
   }, [time]);
 
   useEffect(() => {
+
+    let guid = () => {
+      let s4 = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4();
+    }
+
+    var txn_id = "OrderNo: " + guid();
     switch (activeTab) {
       case 4:
-        setPayment(`paytmmp://cash_wallet?pa=${`fsv.470000099295685@icici`}&pn=Online%20Shopping&am=${Number(
+        setPayment(`paytmmp://cash_wallet?pa=${`mab.037323031170060@axisbank`}&pn=Online%20Shopping&am=${Number(
           data.selling_price
-        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=Online%20Shopping&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
-           break;
+        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=${txn_id}&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+        break;
       case 1:
-        setPayment(`paytmmp://cash_wallet?pa=${`fsv.470000099295685@icici`}&pn=Online%20Shopping&am=${Number(
+
+        setPayment(`paytmmp://cash_wallet?pa=${`mab.037323031170060@axisbank`}&pn=Online%20Shopping&am=${Number(
           data.selling_price
-        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=Online%20Shopping&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
-          break;
+        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=${txn_id}&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+        break;
       case 2:
-        setPayment(`paytmmp://cash_wallet?pa=${`fsv.470000099295685@icici`}&pn=Online%20Shopping&am=${Number(
+
+        setPayment(`paytmmp://cash_wallet?pa=${`mab.037323031170060@axisbank`}&pn=Online%20Shopping&am=${Number(
           data.selling_price
-        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=Online%20Shopping&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
-         break;
+        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=${txn_id}&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+        break;
       case 3:
-        setPayment(`paytmmp://cash_wallet?pa=${`fsv.470000099295685@icici`}&pn=Online%20Shopping&am=${Number(
+
+        setPayment(`paytmmp://cash_wallet?pa=${`mab.037323031170060@axisbank`}&pn=Online%20Shopping&am=${Number(
           data.selling_price
-        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=Online%20Shopping&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=${txn_id}&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
         break;
       case 5:
-        setPayment(`paytmmp://cash_wallet?pa=${`fsv.470000099295685@icici`}&pn=Online%20Shopping&am=${Number(
-          data.selling_price
-        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=Online%20Shopping&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
-          break;
 
+        setPayment(`paytmmp://cash_wallet?pa=${`mab.037323031170060@axisbank`}&pn=Online%20Shopping&am=${Number(
+          data.selling_price
+        )}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=${txn_id}&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+        break;
       default:
         break;
     }
