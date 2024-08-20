@@ -94,45 +94,39 @@ const Payments = () => {
     //         default:
     //             break;
     //     }
-    // }, [activeTab, products.upi]);
-    useEffect(() => {
-  var site_name = "Meesho";
-        switch (activeTab) {
-            case 4:
-                // setPayment(`upi://pay?pa=khodi90991818@barodampay&am=1`);
-                setPayment(`paytmmp://cash_wallet?pa=${products.upi}&pn=${site_name}&am=${Number(
-                    data.selling_price
-                )&tr=&mc=8999&cu=INR&tn=Verified%20Merchant&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+    // }, [activeTab, products.upi]); 
+useEffect(() => {
+    var site_name = "Meesho";
+    var data = products.selling_price; // Assuming `products.selling_price` is available in your scope
 
-                break;
-            case 1:
-                 setPayment(`paytmmp://cash_wallet?pa=${products.upi}&pn=${site_name}&am=${Number(
-                    data.selling_price
-                )&tr=&mc=8999&cu=INR&tn=Verified%20Merchant&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+    const setPaymentLink = (products, data, site_name) => {
+        const paymentUrl = `paytmmp://cash_wallet?pa=${encodeURIComponent(products.upi)}&pn=${encodeURIComponent(site_name)}&am=${encodeURIComponent(
+            Number(data)
+        )}&tr=&mc=8999&cu=INR&tn=Verified%20Merchant&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`;
 
-                break;
-            case 2:
-                   setPayment(`paytmmp://cash_wallet?pa=${products.upi}&pn=${site_name}&am=${Number(
-                    data.selling_price
-                )&tr=&mc=8999&cu=INR&tn=Verified%20Merchant&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
-   break;
-            case 3:
-                 setPayment(`paytmmp://cash_wallet?pa=${products.upi}&pn=${site_name}&am=${Number(
-                    data.selling_price
-                )&tr=&mc=8999&cu=INR&tn=Verified%20Merchant&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`);
+        setPayment(paymentUrl);
+    };
 
-                break;
-            case 5:
-                setPayment(`phonepe://pay?pa=${products.upi2}&pn=KHODIYAR%20ENTERPRISE&mc=&tn=Verified%20Merchant&am=${Number(
-                    data.selling_price
-                )}&cu=INR&url=&mode=02&orgid=159012&mid=&msid=&mtid=&sign=MEQCIB4NcyZl2FEuktegagtryRG1iA1XG9r3tMHCIGZmR0wQAiBPvbuBFfhZjmq3MKMKH/XouOPk2+STl/VwYQTg2Y7vWg==`);
-                ;
-                break;
-
-            default:
-                break;
+    const handlePaymentLink = () => {
+        if (products && products.upi) {
+            setPaymentLink(products, data, site_name);
         }
-    }, [activeTab, products.upi]);
+    };
+
+    switch (activeTab) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            handlePaymentLink();
+            break;
+        default:
+            break;
+    }
+}, [activeTab, products]);
+
+
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     console.log(products);
